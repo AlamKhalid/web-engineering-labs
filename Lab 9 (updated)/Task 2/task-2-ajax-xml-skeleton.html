@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<style>
+table,th,td {
+  border : 1px solid black;
+  border-collapse: collapse;
+}
+th,td {
+  padding: 5px;
+}
+</style>
+
+<body>
+
+<button type="button" id='submitButton'>Get my CD collection</button>
+<br><br>
+<table id="demo">
+</table>
+<div id="error"></div>
+<script src="jquery-3.2.1.js"></script>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		alert('jQuery is working');
+		$('#submitButton').on('click', function(){  
+			let tableHTML = "<tr><th>Title</th><th>Artist</th><th>Country</th><th>Company</th><th>Price</th><th>Year</th></tr>"
+			$.ajax({
+				type: "GET",
+				url: "cd_catalog.xml",
+				dataType: "xml",
+				success: function(xml) {
+					$(xml).find("CD").each(function() {
+						const currency = $(this).find("PRICE").attr("currency");
+						const sign = currency ? currency : "";
+						tableHTML += `<tr><td>${$(this).find("TITLE").html()}</td><td>${$(this).find("ARTIST").html()}</td><td>${$(this).find("COUNTRY").html()}</td><td>${$(this).find("COMPANY").html()}</td><td>${sign}${$(this).find("PRICE").html()}</td><td>${$(this).find("YEAR").html()}</td></tr>`
+					})
+					$("#demo").html(tableHTML);
+				}
+			});
+		});
+	});
+</script>
+
+</script>
+
+</body>
+</html>

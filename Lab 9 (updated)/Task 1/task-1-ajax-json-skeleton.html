@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>AJAX JSON</title>
+
+    <script src="jquery-3.2.1.js"></script>
+  </head>
+
+  <body>
+    <button type="button" id="submitButton">Fetch Data</button>
+    <br /><br />
+    <div id="location" style="display: none;">
+      <table border="1">
+        <tr>
+          <th>Name</th>
+          <th>Designation</th>
+          <th>Salary</th>
+          <th>Joining Date</th>
+          <th>Office</th>
+          <th>Extension</th>
+        </tr>
+      </table>
+    </div>
+
+    <script>
+      $(document).ready(function () {
+        alert("jQuery is working!");
+        $("#submitButton").on("click", function () {
+          $("#location").show();
+          $.ajax({
+            url: "emp_data.json",
+            success: function (res) {
+              const employees = res.empolyees;
+              const employeesTableHTML = employees.map(
+                (employee) =>
+                  `<tr><td>${employee.name}</td><td>${employee.designation}</td><td>${employee.salary}</td><td>${employee.joining_date}</td><td>${employee.office}</td><td>${employee.extension}</td></tr>`
+              );
+              $("table").html($("table").html() + employeesTableHTML);
+            },
+            dataType: "json",
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

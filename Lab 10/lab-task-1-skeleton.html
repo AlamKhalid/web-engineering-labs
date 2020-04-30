@@ -1,0 +1,51 @@
+<html ng-app="nameApp">
+  <head>
+    <meta charset="utf-8" />
+    <title>AngularJS Lab Task-1</title>
+  </head>
+  <body ng-controller="NameCtrl">
+    <ul>
+      <li ng-repeat="name in names">{{name}}</li>
+    </ul>
+    <form ng-submit="addName()">
+      <input type="text" ng-model="enteredName" />
+      <input type="submit" value="add" />
+    </form>
+    <script src="angular-1.3.14.js"></script>
+    <script>
+      var nameApp = angular.module("nameApp", []);
+      nameApp.controller("NameCtrl", function ($scope) {
+        $scope.names = [
+          "David",
+          "John",
+          "Paul",
+          "Mark",
+          "Christopher",
+          "Williams",
+        ];
+        $scope.addName = function () {
+          let exists = false;
+          let val;
+          for (let i = 0; i < $scope.names.length; i++) {
+            if (
+              $scope.names[i].toLowerCase() ===
+              $scope.enteredName.toLowerCase().trim()
+            ) {
+              exists = true;
+              val = $scope.names[i];
+              break;
+            }
+          }
+          if (exists) alert(`${val} already exists!`);
+          else {
+            $scope.names.push(
+              `${$scope.enteredName[0].toUpperCase()}${$scope.enteredName.slice(
+                1
+              )}`
+            );
+          }
+        };
+      });
+    </script>
+  </body>
+</html>
