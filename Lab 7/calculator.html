@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Calculator</title>
+        <style>
+            .container {
+                width: 50%;
+                margin: 0 auto;
+                margin-top: 20px;
+                text-align: center;
+            }
+            #input-field {
+                text-align: left;
+                width: 40%;
+                font-size: 24px;
+                margin: 0 auto;
+                height: 4vh;
+                background-color: white;
+                color:black;
+                border: 1px solid gray;
+                margin-bottom: 2px;
+            }
+            .calculator-btns {
+                width: 40%;
+                margin: 0 auto;
+                border: 1px soild black;
+            }
+            .calc-btn {
+                width: 18.85%;
+            }
+            .mb-1 {
+                margin-bottom: 5px;
+            }
+            button {
+                height: 6vh;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div id="input-field"></div>
+            <div class="calculator-btns">
+                <div class="mb-1">
+                    <button class="calc-btn" onclick="clearM()">MC</button>
+                    <button class="calc-btn btn">0</button>
+                    <button class="calc-btn btn">1</button>
+                    <button class="calc-btn btn">2</button>
+                    <button class="calc-btn btn">+</button>
+                </div>
+                <div class="mb-1">
+                    <button class="calc-btn" onclick="storeM()">MS</button>
+                    <button class="calc-btn btn">3</button>
+                    <button class="calc-btn btn">4</button>
+                    <button class="calc-btn btn">5</button>
+                    <button class="calc-btn btn">-</button>
+                </div>
+                <div class="mb-1">
+                    <button class="calc-btn" onclick="addM()">MR</button>
+                    <button class="calc-btn btn">6</button>
+                    <button class="calc-btn btn">7</button>
+                    <button class="calc-btn btn">8</button>
+                    <button class="calc-btn btn">*</button>
+                </div>
+                <div class="mb-1"> 
+                    <button class="calc-btn" id="btn-m+">M+</button>
+                    <button class="calc-btn btn">9</button>
+                    <button class="calc-btn" onclick="changeSign()">&#177</button>
+                    <button class="calc-btn" onclick="evaluateExp()">=</button>
+                    <button class="calc-btn btn">/</button>
+                </div>
+                <div>
+                    <button class="calc-btn" onclick="invert()">1/x</button>
+                    <button class="calc-btn btn">.</button>
+                    <button class="calc-btn" onclick="square()">x2</button>
+                    <button class="calc-btn" onclick="sqrtExp()">&#8730</button>
+                    <button class="calc-btn" onclick="clearInput()">C</button>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            var M = "";
+            var buttons = document.getElementsByClassName('btn');
+            var inputDiv = document.getElementById('input-field');
+            for(let button of buttons) {
+                button.addEventListener('click', function() {
+                    inputDiv.innerHTML += button.innerHTML;
+                    if(button.innerHTML === '.')
+                        inputDiv.innerHTML += 0;
+                });
+            }
+
+            function clearM() {
+                M = "";
+            }
+
+            function changeSign() {
+                var exp = inputDiv.innerHTML
+                if(exp[0] === '-')
+                    exp = inputDiv.innerHTML.substring(2, exp.length - 1);
+                else
+                    exp = "-(" + exp + ")";
+                inputDiv.innerHTML = exp;
+            }
+
+            function updateM() {
+                M += eval(inputDiv.innerHTML);
+            }
+
+            function addM() {
+                inputDiv.innerHTML += M;
+            }
+
+            function storeM() {
+                var exp = inputDiv.innerHTML;
+                if(!containsOperation(exp))
+                    M = exp;
+            }
+
+            function containsOperation(exp) {
+                if(exp.indexOf("-") === 0 && exp.indexOf('+') === -1 || exp.indexOf('*') === -1 || exp.indexOf('/') === -1)
+                    return false;
+                if(exp.indexOf('+') > -1 || exp.indexOf('-') > -1 || exp.indexOf('*') > -1 || exp.indexOf('/') > -1)
+                    return true;
+                return false;
+            }
+
+            function clearInput() {
+                inputDiv.innerHTML = "";
+            }
+
+            function evaluateExp() {
+                inputDiv.innerHTML = eval(inputDiv.innerHTML);
+            }
+
+            function invert() {
+                inputDiv.innerHTML = eval("1/" + (inputDiv.innerHTML));
+            }
+
+            function square() {
+                inputDiv.innerHTML = Math.pow(eval(inputDiv.innerHTML),2);
+            }
+
+            function sqrtExp() {
+                inputDiv.innerHTML = Math.sqrt(eval(inputDiv.innerHTML));
+            }
+
+
+        </script>
+
+    </body>
+</html>
