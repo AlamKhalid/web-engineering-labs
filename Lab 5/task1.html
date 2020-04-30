@@ -1,0 +1,583 @@
+<!--
+    Name: Alam Khalid
+    CMS: 260652
+    Date: 20/02/2020
+-->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      .navbar {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        padding: 10px;
+        background-color: black;
+        color: white;
+      }
+
+      .container {
+        margin: 20px 100px;
+        overflow: hidden;
+      }
+
+      .header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin: 20px 100px;
+      }
+
+      .text-muted {
+        color: #a39e9e;
+      }
+
+      .small {
+        font-size: 0.8rem;
+      }
+
+      .bold {
+        font-weight: bold;
+      }
+
+      .col-3 {
+        width: 25%;
+      }
+      .col-4 {
+        width: 33.33%;
+      }
+
+      .col-6 {
+        width: 50%;
+      }
+
+      .border {
+        border: 2px solid red;
+      }
+
+      .main,
+      .main-body,
+      .weather {
+        display: flex;
+      }
+
+      .space-between {
+        justify-content: space-between;
+      }
+
+      .col,
+      .col-same {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .fit-height {
+        height: 100%;
+      }
+
+      .fig {
+        width: 100%;
+      }
+
+      .mr-2,
+      .mr-lg-2 {
+        margin-right: 20px;
+      }
+
+      .mr-3 {
+        margin-right: 30px;
+      }
+
+      .mb-2 {
+        margin-bottom: 20px;
+      }
+
+      .mb-3 {
+        margin-bottom: 40px;
+      }
+
+      .mr-1,
+      .mr-lg-1 {
+        margin-right: 10px;
+      }
+
+      .mb-1,
+      .mb-lg-1 {
+        margin-bottom: 12px;
+      }
+
+      .ml-1,
+      .ml-lg-1 {
+        margin-left: 10px;
+      }
+
+      .border-left-red {
+        border-left: 3px solid red;
+        padding-left: 10px;
+      }
+
+      .border-left-yellow {
+        border-left: 3px solid yellow;
+        padding-left: 10px;
+      }
+
+      .title {
+        color: gray;
+      }
+
+      h3 {
+        font-size: 1.5rem;
+      }
+
+      .color-white {
+        color: white;
+      }
+
+      .text-upr {
+        text-transform: uppercase;
+      }
+
+      img:hover {
+        opacity: 0.9;
+      }
+
+      .btn {
+        border: 1px solid gray;
+        color: white;
+        border-radius: 20px;
+        padding: 8px 30px;
+        background: none;
+      }
+
+      .half-height {
+        height: 80%;
+      }
+
+      .py-3 {
+        padding: 40px 0;
+      }
+
+      .bg-white {
+        background-color: white;
+      }
+
+      .bg {
+        background-image: url("https://ichef.bbci.co.uk/images/ic/1200x675/p07s9yxt.jpg");
+        background-size: cover;
+      }
+
+      .d-sm-inline {
+        display: none;
+      }
+
+      @media screen and (max-width: 1166px) {
+        .container,
+        .header {
+          margin: 20px;
+        }
+
+        .half-height {
+          height: 70%;
+        }
+      }
+
+      @media screen and (max-width: 1007px) {
+        .container,
+        .header {
+          margin: 20px;
+        }
+
+        .col-3 {
+          width: 33.33%;
+        }
+
+        h3 {
+          font-size: 1.4rem;
+        }
+
+        .main {
+          flex-direction: column;
+          justify-content: start;
+        }
+
+        .half-height {
+          height: 70%;
+        }
+
+        .d-none {
+          display: none;
+        }
+
+        .col {
+          flex-direction: row;
+        }
+
+        .col-6 {
+          width: 100%;
+        }
+
+        .half-width {
+          width: 50%;
+        }
+
+        .mr-lg-1 {
+          margin-right: 0;
+        }
+
+        .mb-lg-1 {
+          margin-bottom: 0;
+        }
+
+        .ml-lg-1 {
+          margin-left: 0;
+        }
+
+        .mr-lg-2 {
+          margin-right: 0;
+        }
+      }
+
+      @media screen and (max-width: 600px) {
+        .half-width {
+          width: 100%;
+        }
+
+        .btn {
+          margin-top: 10px;
+        }
+
+        .d-sm-inline {
+          display: block;
+        }
+
+        .main,
+        .main-body,
+        .col {
+          display: block;
+        }
+
+        .col-3,
+        .col-4,
+        .col-6 {
+          width: 100%;
+        }
+
+        h4 {
+          margin-bottom: 15px;
+        }
+
+        .bg-white {
+          margin-bottom: 20px;
+        }
+
+        .my-2 {
+          margin: 10px 0;
+        }
+
+        .d-sm-none {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="navbar">
+      <span>BBC</span>
+      <span>Sign in</span>
+      <span>Home</span>
+      <span>News</span>
+      <span>Sport</span>
+      <span>Reel</span>
+      <span>Worklife</span>
+      <span class="d-sm-none">Travel</span>
+      <span class="d-sm-none">Future</span>
+      <span class="d-sm-none">More</span>
+      <span class="d-sm-none"><input type="text" placeholder="Search"/></span>
+    </div>
+
+    <div class="header">
+      <h2>Welcome to BBC.com</h2>
+      <h2 class="text-muted">Thursday, 20 February</h2>
+    </div>
+
+    <div class="container main mb-3">
+      <div class="col-6 mr-1 mb-1">
+        <img
+          class="fig fit-height"
+          src="https://ichef.bbci.co.uk/news/624/cpsprodpb/205E/production/_110968280_f290ade1-e15b-4f0d-a4b8-ca937037eb60.jpg"
+        />
+        <hr class="d-sm-inline my-2" />
+      </div>
+      <div class="col-6 main">
+        <div class="col-6 col">
+          <span class="mr-1 half-width"
+            ><img
+              class="fig mb-1"
+              src="https://ichef.bbci.co.uk/news/624/cpsprodpb/D080/production/_110967335_bloombergbernie.jpg"
+            />
+            <hr class="d-sm-inline my-2" />
+          </span>
+          <span class="mr-lg-1 half-width"
+            ><img
+              class="fig"
+              src="https://ichef.bbci.co.uk/wwfeatures/live/1280_720/images/live/p0/83/xm/p083xmld.jpg"
+            />
+            <hr class="d-sm-inline my-2" />
+          </span>
+        </div>
+        <div class="col-6 col">
+          <span class="ml-lg-1 half-width"
+            ><img
+              class="fig mb-lg-1"
+              src="https://ichef.bbci.co.uk/news/660/cpsprodpb/243C/production/_110967290_b6477138-5956-42a5-8799-440b20d324d0.jpg"
+            />
+            <hr class="d-sm-inline my-2" />
+          </span>
+          <span class="ml-1 half-width"
+            ><img
+              class="fig fit-height"
+              src="https://ichef.bbci.co.uk/news/624/cpsprodpb/C07C/production/_110967294_98480f2b-1fda-4fca-a08c-8763407ce5a6.jpg"
+            />
+            <hr class="d-sm-inline my-2" />
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="container mb-3">
+      <h2 class="title border-left-red mb-1">News</h2>
+      <div class="main-body">
+        <div class="col-4 mr-2">
+          <img
+            class="fig"
+            src="https://ichef.bbci.co.uk/news/660/cpsprodpb/243C/production/_110967290_b6477138-5956-42a5-8799-440b20d324d0.jpg"
+          />
+          <h3 class="mb-1">
+            Japanese passengers from virus-hit cruise ship die
+          </h3>
+          <p class="mb-1">This is more info</p>
+          <h4 class="text-upr border-left-red">aisa</h4>
+          <hr class="d-sm-inline my-2" />
+        </div>
+        <div class="col-4 mr-2">
+          <img
+            class="fig"
+            src="https://ichef.bbci.co.uk/news/660/cpsprodpb/45E8/production/_110969871_hi060017018.jpg"
+          />
+          <h3 class="mb-1">
+            Mexican police arrest suspects in child murder
+          </h3>
+          <p class="mb-1">This is more info</p>
+          <h4 class="text-upr border-left-red">latin america & caribbean</h4>
+          <hr class="d-sm-inline my-2" />
+        </div>
+        <div class="col-4">
+          <img
+            class="fig"
+            src="https://ichef.bbci.co.uk/news/660/cpsprodpb/8D15/production/_110971163_mediaitem110971162.jpg"
+          />
+          <h3 class="mb-1">
+            Samsung explains mystery alert sent overnight
+          </h3>
+          <p class="mb-1">This is more info</p>
+          <h4 class="text-upr border-left-red">technology</h4>
+          <hr class="d-sm-inline my-2" />
+        </div>
+      </div>
+    </div>
+
+    <div class="container mb-3">
+      <h2 class="title border-left-yellow mb-1">Sport</h2>
+      <div class="main-body">
+        <div class="col-4 mr-2">
+          <img
+            class="fig"
+            src="https://ichef.bbci.co.uk/onesport/cps/800/cpsprodpb/16EE7/production/_110772939_putin_getty_ceremony.jpg"
+          />
+          <h3 class="mb-1">
+            How Sochi 2014' changed our lives forever'
+          </h3>
+          <p class="mb-1">This is more info</p>
+          <h4 class="text-upr border-left-yellow">winter sports</h4>
+          <hr class="d-sm-inline my-2" />
+        </div>
+        <div class="col-4 mr-2">
+          <img
+            class="fig"
+            src="https://ichef.bbci.co.uk/onesport/cps/800/cpsprodpb/F8D0/production/_110969636_federer_getty2.jpg"
+          />
+          <h3 class="mb-1">
+            Federer out of French Open after surgery
+          </h3>
+          <p class="mb-1">This is more info</p>
+          <h4 class="text-upr border-left-yellow">tennis</h4>
+          <hr class="d-sm-inline my-2" />
+        </div>
+        <div class="col-4">
+          <img
+            class="fig"
+            src="https://ichef.bbci.co.uk/onesport/cps/800/cpsprodpb/7FE0/production/_110963723_gettyimages-1190077181.jpg"
+          />
+          <h3 class="mb-1">
+            Barcelona sign Braithwaite from Leganes
+          </h3>
+          <p class="mb-1">This is more info</p>
+          <h4 class="text-upr border-left-yellow">european football</h4>
+          <hr class="d-sm-inline my-2" />
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <h2 class="title text-upr mb-2">singapore weather</h2>
+      <div class="weather">
+        <div class="mr-1">
+          <img
+            src="https://static.bbci.co.uk/weather/0.5.284/images/icons/individual_56_icons/en_on_light_bg/2.gif"
+          />
+        </div>
+        <div class="col-same mr-3">
+          <span class="small bold">THU</span>
+          <span class="small">24<sup>o</sup>C</span>
+          <span class="small">24<sup>o</sup>C</span>
+        </div>
+        <div class="mr-1">
+          <img
+            src="https://static.bbci.co.uk/weather/0.5.284/images/icons/individual_56_icons/en_on_light_bg/11.gif"
+          />
+        </div>
+        <div class="col-same mr-3">
+          <span class="small bold">FRI</span>
+          <span class="small">32<sup>o</sup>C</span>
+          <span class="small">25<sup>o</sup>C</span>
+        </div>
+        <div class="mr-1">
+          <img
+            src="https://static.bbci.co.uk/weather/0.5.284/images/icons/individual_56_icons/en_on_light_bg/3.gif"
+          />
+        </div>
+        <div class="col-same mr-3">
+          <span class="small bold">SAT</span>
+          <span class="small">33<sup>o</sup>C</span>
+          <span class="small">24<sup>o</sup>C</span>
+        </div>
+        <div class="mr-1">
+          <img
+            src="https://static.bbci.co.uk/weather/0.5.284/images/icons/individual_56_icons/en_on_light_bg/11.gif"
+          />
+        </div>
+        <div class="col-same">
+          <span class="small bold">SUN</span>
+          <span class="small">33<sup>o</sup>C</span>
+          <span class="small">24<sup>o</sup>C</span>
+        </div>
+      </div>
+    </div>
+
+    <br />
+
+    <div class="bg mb-3">
+      <div class="container py-3">
+        <div class="main-body space-between mb-2">
+          <div class="col-same">
+            <h1 class="color-white">BBC REEL</h1>
+            <h3 class="color-white">
+              The new home for amazing BBC video content
+            </h3>
+          </div>
+          <div><button class="btn">Visit Reel</button></div>
+        </div>
+        <div class="main-body">
+          <div class="col-4 mr-2 bg-white">
+            <img
+              class="fig half-height"
+              src="https://www.universetoday.com/wp-content/uploads/2018/04/nrao18cb5_artistimpression.jpg"
+            />
+            <h3 class="ml-1">
+              Does the Universe have a hidden twin
+            </h3>
+          </div>
+          <div class="col-4 mr-2 bg-white">
+            <img
+              class="fig half-height"
+              src="https://www.businessfinland.fi/4966bd/globalassets/international-customers/work-in-finland/20140917_1834__mg_8607.jpg"
+            />
+            <h3 class="ml-1">
+              The colossal scam of Finland's fake lovers
+            </h3>
+          </div>
+          <div class="col-4 mr-2 bg-white">
+            <img
+              class="fig half-height"
+              src="https://i.ytimg.com/vi/YQkJdZDEcuI/maxresdefault.jpg"
+            />
+            <h3 class="ml-1">
+              New Frozen 2 Release date
+            </h3>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container mb-3">
+      <h2 class="title border-left-red mb-1">Asia News</h2>
+      <div class="main-body">
+        <div class="col-3 mr-2">
+          <img
+            class="fig"
+            src="https://ichef.bbci.co.uk/news/660/cpsprodpb/109BB/production/_110972086_de27.jpg"
+          />
+          <h3 class="mb-1">
+            Two dead as Sydney-Melbourne train derails
+          </h3>
+          <p class="mb-1">This is more info</p>
+          <h4 class="text-upr border-left-red">australia</h4>
+          <hr class="d-sm-inline my-2" />
+        </div>
+        <div class="col-3 mr-2">
+          <img
+            class="fig"
+            src="https://ichef.bbci.co.uk/news/660/cpsprodpb/1756A/production/_110849559_gettyimages-1198675589.jpg"
+          />
+          <h3 class="mb-1">
+            How a virus reveals the many ways China is feared
+          </h3>
+          <p class="mb-1">This is more info</p>
+          <h4 class="text-upr border-left-red">asia</h4>
+          <hr class="d-sm-inline my-2" />
+        </div>
+        <div class="col-3 mr-lg-2">
+          <img
+            class="fig"
+            src="https://ichef.bbci.co.uk/news/624/cpsprodpb/7F40/production/_110967523_86981069_10220139479264584_5282910117400936448_n.jpg"
+          />
+          <h3 class="mb-1">
+            Ex-rugby player 'senselessly murdered' family
+          </h3>
+          <p class="mb-1">This is more info</p>
+          <h4 class="text-upr border-left-red">australia</h4>
+          <hr class="d-sm-inline my-2" />
+        </div>
+        <div class="col-3 mr-2 d-none">
+          <img
+            class="fig"
+            src="https://ichef.bbci.co.uk/news/660/cpsprodpb/121A/production/_110943640_aus1.jpg"
+          />
+          <h3 class="mb-1">
+            Hell to high water: Australia's summer of extremes
+          </h3>
+          <p class="mb-1">This is more info</p>
+          <h4 class="text-upr border-left-red">australia</h4>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
