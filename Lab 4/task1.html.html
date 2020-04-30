@@ -1,0 +1,279 @@
+<!--
+    Name: Alam Khalid
+    Class: BSCS-8A
+    CMS: 260652
+    Lab: 04
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>BBC - Homepage</title>    
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.col-1 {display:inline; float:left; max-width: 8.33%; margin: 0 10px;} 
+.col-2 {display:inline; float:left; max-width: 16.66%; margin: 10px}
+.col-3 {display:inline; float:left; max-width: 25%; margin: 5px}
+.col-4 {display:inline; float:left; max-width: 33.33%; margin: 10px}
+.col-6 {display:inline; float:left; max-width: 50%; margin: 2px}
+
+
+.row:after { content: ""; clear: both; display: block; } 
+
+.container {
+    margin: 20px 80px;
+}
+
+.navbar {
+    list-style: none;
+    overflow: hidden;
+    background-color: black;
+    color: white;
+}
+
+.navbar li {
+    float:left;
+    display:block;
+    margin: 0 auto;
+    text-align: center;
+    padding: 10px 30px;
+    border-right: 1px solid #bbb;
+}
+
+.navbar li:last-child {
+  border-right: none;
+}
+
+.navbar li:hover {
+    background-color: gray;
+}
+
+.navbar li:last-child:hover, .navbar li:first-child:hover {
+    background-color: black;
+}
+
+.main {
+    width: fit-content;
+    margin: 20px auto;
+}
+
+.title {
+    border-left: 3px solid red;
+    padding-left: 15px;
+    color: gray;
+    margin-left: 40px;
+}
+
+.title-2 {
+    border-left: 3px solid red;
+    padding-left: 15px;
+    color: gray;
+    margin-top: 12px
+}
+
+.caption {
+    margin-top: 5px;
+}
+
+p {
+    margin-top: 10px;
+}
+
+img:hover {
+    opacity: 0.8;
+}
+
+.back {
+    background-image: url("https://ichef.bbci.co.uk/images/ic/1200x675/p07s9yxt.jpg");
+    background-size: cover;
+    padding: 20px;
+}
+
+.btn-reel {
+    border-radius: 15px;
+    width: 100px;
+    float: right;
+    margin-right: 30px;
+    background: none;
+    color: white;
+    padding: 8px;
+    border: 1px solid gray;
+}
+</style>
+</head>
+<body>
+    
+<div>
+    <ul class="navbar">
+        <li><img src="https://imjustcreative.com/wp-content/uploads/2010/05/BBC_logo_black_background-1.jpg" width="100px" height="15px"></li>
+        <li>Sign in</li>
+        <li>Home</li>
+        <li>News</li>
+        <li>Sport</li>
+        <li>Reel</li>
+        <li>Worklife</li>
+        <li>Travel</li>
+        <li>Future</li>
+        <li>Culture</li>
+        <li>More</li>
+        <li><input type="text" placeholder="Search"></li>
+    </ul>
+</div>
+
+<div class="container">
+    <h2 style="display:inline">Welcome to BBC.com</h2><h2 style="display:inline; float:right">Thursday, 13 February</h2>
+</div>
+
+<div class="main row">
+    <div class="col-6">
+        <img width="650px" height="408px" src="https://ichef.bbci.co.uk/news/660/cpsprodpb/177F8/production/_110884269_5d0d0345-4c43-497f-af72-97a2ea1abe2e.jpg">
+    </div>
+    <div clas="col-6">
+        <div class="col-3">
+            <img height="200px" width="325px" src="https://ichef.bbci.co.uk/news/660/cpsprodpb/1564B/production/_110872678_de150aa4-20d7-416a-be7c-243fa4f7b1e7.jpg">
+        </div>
+        <div class="col-3">
+            <img height="200px" width="325px" src="https://ichef.bbci.co.uk/wwfeatures/live/1280_720/images/live/p0/82/mc/p082mcgs.jpg">
+        </div>
+        <div class="col-3">
+            <img height="200px" width="325px" src="https://ichef.bbci.co.uk/wwfeatures/live/1280_720/images/live/p0/83/4d/p0834df6.jpg">
+        </div>
+        <div class="col-3">
+            <img height="200px" width="325px" src="https://ichef.bbci.co.uk/wwfeatures/live/1280_720/images/live/p0/83/4f/p0834fq9.jpg">
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <h2 class="title">News</h2>
+    <div class="main">
+        <div class="col-4"><img width="440px" height="350px" src="https://ichef.bbci.co.uk/images/ic/208x117/p08350kw.jpg">
+            <h3 class="caption">Volunteers Fixing their town</h3>
+            <p>This is info about this</p>
+            <h4 class="title-2">AFRICA</h4>
+        </div>
+        <div class="col-4"><img width="440px" height="350px" src="https://ichef.bbci.co.uk/news/660/cpsprodpb/149E9/production/_110875448_mediaitem110875447.jpg">
+            <h3 class="caption">Cabinet Mission Plan 3rd June failed miserably</h3>
+            <p>This is info about this</p>
+            <h4 class="title-2">AFRICA</h4>
+        </div>
+        <div class="col-4"><img width="440px" height="350px" src="https://ichef.bbci.co.uk/news/660/cpsprodpb/B886/production/_110883274_gettyimages-1025376982-1.jpg">
+            <h3 class="caption">Volunteers Fixing their town</h3>
+            <p>This is info about this</p>
+            <h4 class="title-2">AFRICA</h4>
+        </div>
+    </div>
+</div>
+
+<br> <br>
+
+<div class="row">
+    <h2 class="title" style="border-color: yellow; margin-left: 40px">Sport</h2>
+    <div class="main">
+        <div class="col-4"><img width="440px" height="350px" src="https://ichef.bbci.co.uk/onesport/cps/800/cpsprodpb/3352/production/_110883131_adilrashidisdismissed.jpg">
+            <h3 class="caption">Wasteful England lose T20</h3>
+            <p>This is info about this</p>
+            <h4 class="title-2" style="border-color: yellow">SPORT</h4>
+        </div>
+        <div class="col-4"><img width="440px" height="350px" src="https://ichef.bbci.co.uk/onesport/cps/800/cpsprodpb/1789/production/_110852060_sky_brown_jump.png">
+            <h3 class="caption">Meet the sky 13 year old girl</h3>
+            <p>This is info about this</p>
+            <h4 class="title-2" style="border-color: yellow">SPORT</h4>
+        </div>
+        <div class="col-4"><img width="440px" height="350px" src="https://ichef.bbci.co.uk/onesport/cps/800/cpsprodpb/13720/production/_110784697_f1_getty.jpg">
+            <h3 class="caption">Chinese Grand Pix</h3>
+            <p>This is info about this</p>
+            <h4 class="title-2" style="border-color: yellow">FORMULA 1</h4>
+        </div>
+    </div>
+</div>
+
+<br> <br>
+
+<div class="row" style="margin-left: 42px">
+    <h2>SINGAPORE WEATHER</h2>
+    <br>
+    <div class="col-1">
+        <img src="https://static.bbci.co.uk/weather/0.5.284/images/icons/individual_56_icons/en_on_light_bg/3.gif">
+    </div>
+    <div class="col-1">
+        THU <br> <strong>32<sup>o</sup>C</strong> <br> 24<sup>o</sup>C
+    </div>
+    <div class="col-1">
+        <img src="https://static.bbci.co.uk/weather/0.5.284/images/icons/individual_56_icons/en_on_light_bg/11.gif">
+    </div>
+    <div class="col-1">
+        FRI <br> <strong>32<sup>o</sup>C</strong> <br> 22<sup>o</sup>C
+    </div>
+    <div class="col-1">
+        <img src="https://static.bbci.co.uk/weather/0.5.284/images/icons/individual_56_icons/en_on_light_bg/3.gif">
+    </div>
+    <div class="col-1">
+        SAT <br> <strong>33<sup>o</sup>C</strong> <br> 24<sup>o</sup>C
+    </div>
+    <div class="col-1">
+        <img src="https://static.bbci.co.uk/weather/0.5.284/images/icons/individual_56_icons/en_on_light_bg/3.gif">
+    </div>
+    <div class="col-1">
+        SUN <br> <strong>32<sup>o</sup>C</strong> <br> 22<sup>o</sup>C
+    </div>
+</div>
+
+<br> <br> <br>
+
+<div class="row back">
+    <h2 style="margin-left: 40px; color: white">BBC REEL<button class="btn-reel">Visit Reel</button></h2>
+    <p style="color: white; margin-left: 30px">The new home for amazing BBC video content</p>
+    <div class="main">
+        <div class="col-4" style="background-color: white;"><img width="440px" height="350px" src="https://ichef.bbci.co.uk/news/660/cpsprodpb/61B1/production/_110890052_cabinet_spilt_afp_pa.jpg">
+            <h3 class="caption" style="padding: 10px">Big names sacked in cabinet clear-out</h3>
+        </div>
+        <div class="col-4" style="background-color: white;"><img width="440px" height="350px" src="https://dimg04.c-ctrip.com/images/350310000000q24ziE014.jpg?proc=source/trip;namelogo/d_40">
+            <h3 class="caption" style="padding: 10px">New Disney Land in Tokyo</h3>
+        </div>
+        <div class="col-4" style="background-color: white;"><img width="440px" height="350px" src="https://i.pinimg.com/originals/99/3f/82/993f82e712bf4f1f6452068dcb7f0475.jpg">
+            <h3 class="caption" style="padding: 10px">Forzen 2 Release Date</h3>
+        </div>
+    </div>
+</div>
+
+<br> <br> <br>
+
+<div class="row">
+    <h2 class="title" style="margin-left: 40px">Asia News</h2>
+    <div class="main">
+        <div class="col-3"><img width="330px" height="350px" src="https://ichef.bbci.co.uk/news/624/cpsprodpb/EF90/production/_110882316_gettyimages-1199289946.jpg">
+            <h3 class="caption">Global City highly vulnerable</h3>
+            <p>This is info about this</p>
+            <h4 class="title-2">ASIA</h4>
+        </div>
+        <div class="col-3"><img width="330px" height="350px" src="https://ichef.bbci.co.uk/news/660/cpsprodpb/14B34/production/_110888748_gettyimages-1199973202.jpg">
+            <h3 class="caption">Great News! Bushfire All the way</h3>
+            <p>This is info about this</p>
+            <h4 class="title-2">ASIA</h4>
+        </div>
+        <div class="col-3"><img width="330px" height="350px" src="https://ichef.bbci.co.uk/news/660/cpsprodpb/1599E/production/_110887488_gettyimages-1150363154.jpg">
+            <h3 class="caption">Parties ordered to explain criminal</h3>
+            <p>This is info about this</p>
+            <h4 class="title-2">ASIA</h4>
+        </div>
+        <div class="col-3"><img width="330px" height="350px" src="https://ichef.bbci.co.uk/news/624/cpsprodpb/D8CA/production/_110889455_singapore_flight_hub_640-nc.png">
+            <h3 class="caption">Map corona virus affection</h3>
+            <p>This is info about this</p>
+            <h4 class="title-2">ASIA</h4>
+        </div>
+    </div>
+</div>
+
+<br> <br> <br>
+
+</body>
+</html>
